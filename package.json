@@ -1,0 +1,21 @@
+{
+  "name": "api-gestao-de-estacionamento",
+  "version": "1.0.0",
+  "description": "uma api para gestao de estacionamneto",
+  "license": "ISC",
+  "author": "Augusto Lopes",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "nodemon": "^3.1.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
