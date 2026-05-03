@@ -1,5 +1,6 @@
 import { Database } from "sqlite";
-import { IbuscaVagasRepository, vagas } from "../../controllers/busca-vagas/busca-vagas.controller";
+import { IbuscaVagasRepository } from "../../controllers/busca-vagas/busca-vagas.controller";
+import { vagas } from "../../controllers/protocols";
 
 export class BuscaVagasRepository implements IbuscaVagasRepository {
     constructor(private readonly db: Database){}
