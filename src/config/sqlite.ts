@@ -3,7 +3,7 @@ import { open } from "sqlite";
 
 export async function conectarDB() {
   return open({
-    filename: "./database.db",
+    filename: "./src/config/database.db",
     driver: sqlite3.Database
   });
 }
