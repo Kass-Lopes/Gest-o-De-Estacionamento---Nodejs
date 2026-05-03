@@ -12,15 +12,15 @@ export class EntredaDeVeiculoController implements IentradaDeVeiculo {
         
         try{
             const NovaPlaca = this.placa.split(/[-\s]/)
-            const data = await this.EntradaDeVeiculo.entrada(NovaPlaca.join(""))
+            const ticket = await this.EntradaDeVeiculo.entrada(NovaPlaca.join(""))
             return {
                 status: 200,
-                data: data
+                data: ticket
             }
-        }catch{
+        }catch(error){
             return {
                 status: 500,
-                data: "Erro ao dar  entrada, por favor tente novamente mais tarde!"
+                data: "Erro ao dar  entrada, por favor tente novamente mais tarde! "+error
             }
         }
     }
