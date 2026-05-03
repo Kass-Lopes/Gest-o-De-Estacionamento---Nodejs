@@ -1,3 +1,4 @@
+
 export interface HttpResponse<T> {
     status: number,
     data: T | string
@@ -15,7 +16,7 @@ export interface vagas{
 export interface ticket {
     id: string,
     placa: string,
-    vaga_id: string,
+    vagaOcupada: string,
     hora_de_entrada?: Date,
-    hora_de_saide?: Date
+    hora_de_saide?: Date,
 }
