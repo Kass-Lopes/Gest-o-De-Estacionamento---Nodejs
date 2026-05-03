@@ -18,7 +18,7 @@ const main =  async ()=>{
         const buscaVaga = new BuscaVagasController(buscaVagaDB)
 
         const {status, data} = await buscaVaga.handle()
-        res.json({status,data}).status(status)
+        res.status(status).json({status,data})
     })
 
     router.post("/api/check-in/:placa", async (req, res)=>{
@@ -27,7 +27,7 @@ const main =  async ()=>{
         const entradaController = new EntredaDeVeiculoController(entradaDB, placa)
 
         const { status, data } = await entradaController.entrada()
-        res.json({status,data}).status(status)
+        res.status(status).json({status,data})
     })
 }
 
