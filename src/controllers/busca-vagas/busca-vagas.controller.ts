@@ -1,4 +1,4 @@
-import { HttpResponse } from "../protocols";
+import { HttpResponse, vagas } from "../protocols";
 
 export interface IbuscaVagas {
     handle(): Promise<HttpResponse<vagas[]>>;
@@ -7,10 +7,7 @@ export interface IbuscaVagas {
 export interface IbuscaVagasRepository{
     buscarVagas(): Promise<vagas[]>
 }
-export interface vagas{
-    id: number,
-    status: string
-}
+
 export class BuscaVagasController implements IbuscaVagas {
     
     constructor(private readonly buscaVagaDB: IbuscaVagasRepository){}
@@ -25,7 +22,7 @@ export class BuscaVagasController implements IbuscaVagas {
         }catch{
             return {
                 status: 500,
-                data: "algo deu errado"
+                data: "Erro ao buscar vagas"
             }
         }
     }
