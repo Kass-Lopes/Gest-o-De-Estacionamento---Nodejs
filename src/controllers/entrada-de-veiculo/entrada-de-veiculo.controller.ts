@@ -6,7 +6,10 @@ export interface IentradaDeVeiculo {
 }
 
 export class EntredaDeVeiculoController implements IentradaDeVeiculo {
-    constructor(private readonly EntradaDeVeiculo: IentradaDeVeiculoRepository, private readonly placa: string ){}
+    constructor(
+        private readonly EntradaDeVeiculo: IentradaDeVeiculoRepository, 
+        private readonly placa: string 
+    ){}
 
     async entrada(): Promise<HttpResponse<ticket>> {
         
