@@ -29,6 +29,10 @@ const main =  async ()=>{
         const { status, data } = await entradaController.entrada()
         res.status(status).json({status,data})
     })
+
+    router.post("/api/check-out/:data", async ()=>{
+        
+    })
 }
 
 export { router, main }
