@@ -8,7 +8,6 @@ export interface IentradaDeVeiculoRepository {
 export class EntradaDeVeiculoRepository implements IentradaDeVeiculoRepository {
     constructor(private readonly db: Database){}
 
-    //const vagas = await this.db.all("SELECT * FROM vagas")
     async entrada(placa: string): Promise<ticket> {
 
         try{
