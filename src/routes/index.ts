@@ -4,6 +4,8 @@ import { BuscaVagasRepository } from "../repository/busca-vagas-repo/busca-vagas
 import { conectarDB, criarTabelas } from "../config/sqlite"
 import { EntradaDeVeiculoRepository } from "../repository/entrada-de-veiculo-repo/entrada-de-veiculo-repo"
 import { EntredaDeVeiculoController } from "../controllers/entrada-de-veiculo/entrada-de-veiculo.controller"
+import { BuscaVagasDisponiveisRepository } from "../repository/busca-vagas-repo/busca-vagas-disponiveis-repo"
+import { BuscaVagasDisponiveisController } from "../controllers/busca-vagas/busca-vagas-disponiveis.controller"
 
 const router = Router()
 
@@ -12,12 +14,19 @@ const main =  async ()=>{
     const db = await conectarDB()
     await criarTabelas(db)
 
-    router.get("/api/vagas", async (_, res)=>{
-        
+    router.get("/api/parking/spots", async (_, res)=>{
         const buscaVagaDB = new BuscaVagasRepository(db)
         const buscaVaga = new BuscaVagasController(buscaVagaDB)
 
         const {status, data} = await buscaVaga.handle()
+        res.status(status).json({status,data})
+    })
+
+    router.get("/api/parking/spots/available", async (_, res)=>{
+        const vagasDispoveisDB = new BuscaVagasDisponiveisRepository(db)
+        const vagasDisponiveis = new BuscaVagasDisponiveisController(vagasDispoveisDB)
+
+        const { status, data } = await vagasDisponiveis.vagasDisponiveis()
         res.status(status).json({status,data})
     })
 
@@ -30,8 +39,8 @@ const main =  async ()=>{
         res.status(status).json({status,data})
     })
 
-    router.post("/api/check-out/:data", async ()=>{
-        
+    router.post("/api/check-out/:data", async (req, res)=>{
+        const id = req.params.data
     })
 }
 
