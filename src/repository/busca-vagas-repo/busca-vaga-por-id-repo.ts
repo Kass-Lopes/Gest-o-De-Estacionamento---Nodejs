@@ -5,7 +5,7 @@ export interface IbuscaVagaPorIdRepository {
     buscaVagaPorId(): Promise<vagas>
 }
 
-class BuscaVagaPorIdRepository implements IbuscaVagaPorIdRepository {
+export class BuscaVagaPorIdRepository implements IbuscaVagaPorIdRepository {
     constructor( 
         private readonly db: Database,
         private readonly id_vaga: number
